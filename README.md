@@ -4,7 +4,7 @@ Re CAPTCHA reCAPTCHA
 ## Installation
 
 ```
-composer require daz/no-captcha
+composer require daz/recaptcha
 ```
 
 ## Laravel 5 and above
@@ -184,4 +184,4 @@ if (! empty($_POST)) {
 
 ## Contribute
 
-https://github.com/daz/no-captcha/pulls
+https://github.com/daz/recaptcha/pulls
