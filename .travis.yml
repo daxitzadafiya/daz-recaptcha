@@ -1,0 +1,19 @@
+language: php
+
+dist: trusty
+
+php:
+  - 7.3
+  - 7.4
+  - 8.0
+  - 8.1
+  - 8.2
+  - 8.3
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction --dev
+
+script:
+  - composer install
+  - vendor/bin/phpunit

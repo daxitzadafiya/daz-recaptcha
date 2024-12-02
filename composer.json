@@ -1,0 +1,40 @@
+{
+    "name": "daz/recaptcha",
+    "description": "Re CAPTCHA reCAPTCHA For Laravel.",
+    "keywords": [
+        "recaptcha",
+        "captcha",
+        "laravel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daxit Zadafiya",
+            "email": "daxitzadafiya.work@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "guzzlehttp/guzzle": "^6.2|^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8|^9.5.10|^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daz\\ReCaptcha\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daz\\Recaptcha\\ReCaptchaServiceProvider"
+            ],
+            "aliases": {
+                "ReCaptcha": "Daz\\Recaptcha\\Facades\\ReCaptcha"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
