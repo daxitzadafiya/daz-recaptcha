@@ -110,7 +110,43 @@ class ReCaptcha
      */
     public function renderJs($lang = null, $callback = false, $onLoadClass = 'onloadCallBack')
     {
-        return '<script src="'.$this->getJsLink($lang, $callback, $onLoadClass).'" async defer></script>'."\n";
+        $jsScript = '<script src="'.$this->getJsLink($lang, $callback, $onLoadClass).'" async defer></script>'."\n";
+
+        $jsScript .= '<script>
+            function onloadCallBack() {
+                jQuery(".g-recaptcha").each(function () {
+                    const reCaptcha = jQuery(this);
+                    if (reCaptcha.data("recaptcha-client-id") === undefined) {
+                        const recaptchaClientId = grecaptcha.render(reCaptcha.attr("id"), {
+                            "callback": function (response) {
+                                if (reCaptcha.data("formId") !== "") {
+                                    jQuery("#" + reCaptcha.data("inputId"), "#" + reCaptcha.data("formId")).val(response)
+                                        .trigger("change");
+                                } else {
+                                    jQuery("#" + reCaptcha.data("inputId")).val(response).trigger("change");
+                                }
+                                if (reCaptcha.attr("data-callback")) {
+                                    eval("(" + reCaptcha.attr("data-callback") + ")(response)");
+                                }
+                            },
+                            "expired-callback": function (error) {
+                                if (reCaptcha.data("formId") !== "") {
+                                    jQuery("#" + reCaptcha.data("inputId"), "#" + reCaptcha.data("formId")).val("");
+                                } else {
+                                    jQuery("#" + reCaptcha.data("inputId")).val("");
+                                }
+                                if (reCaptcha.attr("data-expired-callback")) {
+                                    eval("(" + reCaptcha.attr("data-expired-callback") + ")()");
+                                }
+                            },
+                        });
+                        reCaptcha.data("recaptcha-client-id", recaptchaClientId);
+                    }
+                });
+            }
+        </script>';
+
+        return $jsScript;
     }
 
     /**
