@@ -1,6 +1,6 @@
 <?php
 
-namespace Daz\ReCaptcha;
+namespace Daxit\ReCaptcha;
 
 use Illuminate\Support\ServiceProvider;
 

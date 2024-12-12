@@ -1,6 +1,6 @@
 <?php
 
-namespace Daz\ReCaptcha\Facades;
+namespace Daxit\ReCaptcha\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,5 +1,5 @@
 {
-    "name": "daz/recaptcha",
+    "name": "daxit/recaptcha",
     "description": "Re CAPTCHA reCAPTCHA For Laravel.",
     "keywords": [
         "recaptcha",
@@ -23,16 +23,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Daz\\ReCaptcha\\": "src/"
+            "Daxit\\ReCaptcha\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Daz\\ReCaptcha\\ReCaptchaServiceProvider"
+                "Daxit\\ReCaptcha\\ReCaptchaServiceProvider"
             ],
             "aliases": {
-                "ReCaptcha": "Daz\\ReCaptcha\\Facades\\ReCaptcha"
+                "ReCaptcha": "Daxit\\ReCaptcha\\Facades\\ReCaptcha"
             }
         }
     },

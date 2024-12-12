@@ -4,7 +4,7 @@ Re CAPTCHA reCAPTCHA
 ## Installation
 
 ```
-composer require daz/recaptcha
+composer require daxit/recaptcha
 ```
 
 ## Laravel 5 and above
@@ -18,19 +18,19 @@ In `app/config/app.php` add the following :
 1- The ServiceProvider to the providers array :
 
 ```php
-daz\ReCaptcha\ReCaptchaServiceProvider::class,
+daxit\ReCaptcha\ReCaptchaServiceProvider::class,
 ```
 
 2- The class alias to the aliases array :
 
 ```php
-'ReCaptcha' => daz\ReCaptcha\Facades\ReCaptcha::class,
+'ReCaptcha' => Daxit\ReCaptcha\Facades\ReCaptcha::class,
 ```
 
 3- Publish the config file
 
 ```ssh
-php artisan vendor:publish --provider="daz\ReCaptcha\ReCaptchaServiceProvider"
+php artisan vendor:publish --provider="daxit\ReCaptcha\ReCaptchaServiceProvider"
 ```
 
 ### Configuration
@@ -165,7 +165,7 @@ require_once "vendor/autoload.php";
 
 $secret  = 'CAPTCHA-SECRET';
 $sitekey = 'CAPTCHA-SITEKEY';
-$captcha = new \daz\ReCaptcha\ReCaptcha($secret, $sitekey);
+$captcha = new \daxit\ReCaptcha\ReCaptcha($secret, $sitekey);
 
 if (! empty($_POST)) {
     var_dump($captcha->verifyResponse($_POST['g-recaptcha-response']));
@@ -184,4 +184,4 @@ if (! empty($_POST)) {
 
 ## Contribute
 
-https://github.com/daz/recaptcha/pulls
+https://github.com/daxit/recaptcha/pulls

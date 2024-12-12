@@ -1,6 +1,6 @@
 <?php
 
-namespace Daz\ReCaptcha;
+namespace Daxit\ReCaptcha;
 
 use Symfony\Component\HttpFoundation\Request;
 use GuzzleHttp\Client;

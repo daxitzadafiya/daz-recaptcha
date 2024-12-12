@@ -1,6 +1,6 @@
 <?php
 
-use Daz\ReCaptcha\ReCaptcha;
+use Daxit\ReCaptcha\ReCaptcha;
 
 class ReCaptchaTest extends PHPUnit_Framework_TestCase
 {
