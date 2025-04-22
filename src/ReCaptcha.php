@@ -157,7 +157,7 @@ class ReCaptcha
      *
      * @return bool
      */
-    public function verifyResponse($response, $clientIp = null)
+    public function verifyResponse($response, $clientIp = null, $version = 'v2')
     {
         if (empty($response)) {
             return false;
@@ -178,9 +178,9 @@ class ReCaptcha
             // A response can only be verified once from google, so we need to
             // cache it to make it work in case we want to verify it multiple times.
             $this->verifiedResponses[] = $response;
-            return true;
+            return $version === 'v3' ? $verifyResponse : true;
         } else {
-            return false;
+            return $version === 'v3' ? $verifyResponse : false;
         }
     }
 
@@ -224,7 +224,7 @@ class ReCaptcha
      */
     protected function setCallBackParams(&$params, $onLoadClass)
     {
-        $params['render'] = 'explicit';
+        $params['render'] = $this->sitekey;
         $params['onload'] = $onLoadClass;
     }
 
