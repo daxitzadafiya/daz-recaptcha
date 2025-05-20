@@ -224,7 +224,7 @@ class ReCaptcha
      */
     protected function setCallBackParams(&$params, $onLoadClass)
     {
-        $params['render'] = $this->sitekey;
+        $params['render'] = 'explicit';
         $params['onload'] = $onLoadClass;
     }
 
